@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "GreatOutdoors": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "GreatOutdoors"
+    }
+  },
+  "defaultProject": "GreatOutdoors",
+  "cli": {
+    "analytics": "a4a4c90a-f0c7-4b39-8946-7e8a8f90b719"
+  }
 }
