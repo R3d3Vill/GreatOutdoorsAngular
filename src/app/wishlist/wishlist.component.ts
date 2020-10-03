@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { WishlistService } from '../wishlist.service';
+import {Product} from '../Product';
+
 
 @Component({
   selector: 'app-wishlist',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WishlistComponent implements OnInit {
 
-  constructor() { }
+  productArr:Product[]=[];
+  constructor(private wishlistService:WishlistService) { }
 
   ngOnInit(): void {
+    this.findAllProductsInUserWishlist('U10001');
+  }
+
+  findAllProductsInUserWishlist(userId:string)
+  {
+    this.wishlistService.findAllProductsInUserWishlist(userId).subscribe(data=>
+      {
+        this.productArr=data;
+      })
   }
 
 }
