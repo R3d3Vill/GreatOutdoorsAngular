@@ -1,1 +1,27 @@
-<p>profile works!</p>
+<br>
+<form  id="updateCustomerForm" name="updateCustomerForm" #updateCustomerForm="ngForm">
+    <div class="form-group">
+        <label for="uName">Userame</label>
+        <input [(ngModel)]="userName" type="text" name="uName" id="uName" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="addrss">Address</label>
+        <input [(ngModel)]="address" type="text" name="addrss" id="addrss" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="zip">Zipcode</label>
+        <input [(ngModel)]="zipcode" type="text" name="zip" id="zip" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="mail">Email Address</label>
+        <input [(ngModel)]="email" type="text" name="mail" id="mail" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="mob">Mobile</label>
+        <input [(ngModel)]="mobile" type="text" name="mob" id="mob" class="form-control">
+    </div>
+    <div class="form-group">
+        <input type="button" [disabled]="!updateCustomerForm.valid" class="btn btn-primary" name="updateCustomer" id="updateCustomer" value="Update Details" (click)="updateCustomer()">
+    </div>
+</form>
+
