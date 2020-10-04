@@ -20,7 +20,11 @@ export class ProfileComponent implements OnInit {
   zipcode:string;
   email:string;
   mobile:string;
+  errorMsg:string;
+  successMsg:string;
   ngOnInit(): void {
+    document.getElementById("errorMsg").style.display="none"
+    document.getElementById("successMsg").style.display="none"
     this.userId='U10001';
     this.customerService.getCustomerByUserId(this.userId).pipe(catchError((error : HttpErrorResponse) =>{
       console.log(error)
@@ -36,8 +40,15 @@ export class ProfileComponent implements OnInit {
 
   updateCustomer(){
     var customer = new Customer(this.userId,this.userName,this.address,this.zipcode,this.email,this.mobile);
-    this.customerService.updateCustomer(customer).subscribe(data =>{
+    this.customerService.updateCustomer(customer).pipe(catchError((error : HttpErrorResponse) =>{
+      this.errorMsg=error.error.text
+      document.getElementById("errorMsg").style.display="block"
+      document.getElementById("successMsg").style.display="none"
+      return throwError(error);
+    })).subscribe(data =>{
       console.log(data);
-    })
-  }
-}
+      this.successMsg="Details Updated Successfully"
+      document.getElementById("errorMsg").style.display="none"
+      document.getElementById("successMsg").style.display="block"
+    });
+}}
