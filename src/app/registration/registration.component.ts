@@ -13,7 +13,7 @@ import { CustomerService } from '../customer.service';
 export class RegistrationComponent implements OnInit {
 
   constructor(private customerService:CustomerService) { }
-
+ 
   userId:string;
   userName:string;
   password:string;
