@@ -7,6 +7,7 @@
             <th>Price</th>
             <th>Manufacturer</th>
             <th>Description</th>
+            <th>Action</th>
         </tr>
         <tr *ngFor="let product of productArr">
             <td>{{product.productId}}</td>
@@ -15,7 +16,7 @@
             <td>{{product.price}}</td>
             <td>{{product.manufacturer}}</td>
             <td>{{product.description}}</td>
-            <td><button type="submit">Remove</button></td>
+            <td><button (click)="removeProductFromWishlist(product.productId)">Remove</button></td>
         </tr>
     </table>
 </div>
