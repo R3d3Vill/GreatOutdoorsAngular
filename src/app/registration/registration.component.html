@@ -1,10 +1,20 @@
 <br>
-<form  id="updateCustomerForm" name="updateCustomerForm" #updateCustomerForm="ngForm">
+<form  id="CustomerRegistrationForm" name="CustomerRegistrationForm" #CustomerRegistrationForm="ngForm">
     <div class="form-group">
         <label for="uName">Userame</label>
         <input [(ngModel)]="userName" required minlength="2" pattern="[a-zA-Z0-9]*$" ngModel #uName="ngModel" type="text" name="uName" id="uName" class="form-control">
     </div>
     <div class="alert alert-danger" *ngIf="uName.touched && !uName.valid">*Required [ Username cannot contain speacial characters or blank spaces (Min Length = 2)] </div>
+    <div class="form-group">
+        <label for="pass">Password</label>
+        <input [(ngModel)]="password" required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$" ngModel #pass="ngModel" type="password" name="pass" id="pass" class="form-control">
+    </div>
+    <div class="alert alert-danger" *ngIf="pass.touched && !pass.valid">*Required [ Passsword must contain Minimum six characters, at least one letter, one number and one special character but no spaces ] </div>
+    <div class="form-group">
+        <label for="confirmPass">Confirm Password</label>
+        <input required ngModel #confirmPass="ngModel" type="password" name="confirmPass" id="confirmPass" class="form-control">
+    </div>
+    <div class="alert alert-danger" *ngIf="pass.touched && confirmPass.touched && pass.value!=confirmPass.value">*Passwords do not match</div>
     <div class="form-group">
         <label for="addrss">Address</label>
         <input [(ngModel)]="address" required maxlength="50" ngModel #addrss="ngModel" type="text" name="addrss" id="addrss" class="form-control">
@@ -26,7 +36,7 @@
     </div>
     <div class="alert alert-danger" *ngIf="mob.touched && !mob.valid">*Required [ Mobile Number must be a 10 digit Number Starting with either 7,8 or 9 ]</div>
     <div class="form-group">
-        <input type="button" [disabled]="!updateCustomerForm.valid" class="btn btn-primary" name="updateCustomer" id="updateCustomer" value="Update Details" (click)="updateCustomer()">
+        <input type="button" [disabled]="!CustomerRegistrationForm.valid" class="btn btn-primary" name="registerCustomer" id="registerCustomer" value="Register" (click)="registerCustomer()">
     </div>
     <div class="alert alert-danger" id="errorMsg" style="text-align: left; font-weight: bold; margin-top: 10px;">{{errorMsg}}</div>
     <div class="alert alert-success" id="successMsg" style="text-align: left; font-weight: bold; margin-top: 10px;">{{successMsg}}</div>
