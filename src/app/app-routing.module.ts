@@ -37,7 +37,6 @@ const routes: Routes = [
   path:'registration',
   component:RegistrationComponent
 } 
->>>>>>> f8468e6c73a97408660801b7f3f881aa117e9939
 ];
 
 @NgModule({
