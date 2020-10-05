@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ImageService } from '../image.service';
+import { Product } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-info',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(public productService:ProductService,public imageService:ImageService) { }
 
+  
   ngOnInit(): void {
+    
   }
+
+ 
+
+ 
 
 }

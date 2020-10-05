@@ -12,6 +12,7 @@ import { MyordersComponent } from './myorders/myorders.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { RegistrationComponent } from './registration/registration.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RegistrationComponent } from './registration/registration.component';
     CartComponent,
     ProductInfoComponent,
     MyordersComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

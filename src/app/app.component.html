@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="home">
     <img src="../../assets/images.png" width="100" height="30" class="d-inline-block align-top" alt="" loading="lazy">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -11,8 +11,8 @@
       <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
       <a class="nav-link" href="#">Categories</a>
       <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" style="width: 500px;" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input class="form-control mr-sm-2" name="search" style="width: 500px;" [(ngModel)]="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchProducts()">Search</button>
       </form>
     </div>
   </div>
@@ -29,18 +29,13 @@
     </a>
   
     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <a class="dropdown-item" href="#">Wishlist</a>
-      <a class="dropdown-item" href="#">Edit Profile</a>
+      <a class="dropdown-item" href="wishlist">Wishlist</a>
+      <a class="dropdown-item" href="profile">Edit Profile</a>
       <a class="dropdown-item" href="#">My Orders</a>
       <a class="dropdown-item" href="#">Log out</a>
     </div>
   </div>
 </nav>
-<router-outlet>
+<router-outlet >
+ 
 </router-outlet>
-
-<footer class="footer" style="height: 60px; background-color: rgb(210, 214, 214); margin-top: 20px;">
-  <div class="container" > 
-    <span>Footer lor</span>
-  </div>
-</footer>

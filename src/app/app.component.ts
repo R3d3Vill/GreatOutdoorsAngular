@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ProductService } from './product.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'GreatOutdoors';
+  
+  constructor(public productService:ProductService,public router:Router)
+  {
+
+  }
+    search:string="";
+
+  searchProducts()
+  { if(this.search.length==0)
+    this.productService.getSearchItems("");
+    else
+    this.productService.getSearchItems(this.search);
+    this.router.navigateByUrl("/search");
+  }
 }

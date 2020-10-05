@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CartComponent } from './cart/cart.component';
+import { SearchComponent } from './search/search.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,10 @@ const routes: Routes = [
 {
   path:'registration',
   component:RegistrationComponent
+},
+{
+  path:'search',
+  component:SearchComponent
 } 
 ];
 

@@ -1,0 +1,40 @@
+<table class="table table-bordered"> 
+<tr>
+    <td>
+        Product Image
+    </td>
+    <td>
+        Prouct Name
+    </td>
+    <td>
+        Product description
+    </td>
+    <td>
+        Price
+    </td>
+    <td>
+        View Product
+    </td>
+</tr>
+
+<tr *ngFor="let product of productService.productSearch; index as i">
+    <td>
+        <img [src]='productService.images[i]' alt="" style="height: 100px; width: 100px;">
+    </td>
+    <td>
+        {{product.productName}}
+    </td>
+    <td>
+        {{product.description}}
+    </td>
+    <td>
+        {{product.price}}
+    </td>
+    <td>
+        <button class="btn btn-primary" (click)="viewProduct(product.productId)" >
+            View Product
+        </button>
+    </td>
+</tr>
+
+</table>
