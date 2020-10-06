@@ -20,4 +20,13 @@ export class WishlistService {
   {
     return this.http.delete<string>(this.url+'/removeProductFromWishlist/'+userId+'/'+ productId);
   }
+  public addProductToWishlist(userId:string,productId:string)
+  { console.log(
+  userId + "  "+ productId
+  );
+  
+    return this.http.post(this.url+"/addProductToWishlist",new Wish(userId,productId));
+  }
+  
+
 }

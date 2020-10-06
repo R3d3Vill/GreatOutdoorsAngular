@@ -1,7 +1,33 @@
+<div class="container" style="margin-top: 50px;">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card" style="width: 22rem;">
+                <img [src]='productService.retrievedImage'
+                    onerror=" this.onerror=null; this.src='../../assets/product.jpg';" alt="" class="card-img-top"
+                    style="border: 2px solid green;">
+            </div>
+        </div>
+        <div class="col-md-6" style="border: 2px solid rgb(0, 140, 255);">
+            <div class="card-body">
+                <h5 class="card-title">{{productService.product.productName}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{productService.product.manufacturer}}</h6>
+                <p class="card-text">{{productService.product.description}}</p>
+                <div class="row" style="text-align: center;">
+                    <div class="col-md-4">
+                        <b class="card-link">₹ {{productService.product.price}}</b>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-warning" (click)="addToWishList(productService.product.productId)">
+                            Add to wishlist <i class="fa fa-heart"></i>
+                        </button>
+                    </div >
+                    <div class="col-md-4"> <a class="btn btn-primary" style="float: right;"
+                            (click)="addItemToCart(productService.product.productId)">Add to cart</a></div>
 
-<p>{{productService.product.productId}}</p>
-<p>{{productService.product.price}}</p>
-<p>{{productService.product.productName}}</p>
-<p>{{productService.product.manufacturer}}</p>
-<img [src]='productService.retrievedImage' alt="" style="height: 100px; width: 100px;">
-<button>Add to cart</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

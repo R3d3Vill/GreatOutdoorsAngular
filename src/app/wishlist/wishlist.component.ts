@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { WishlistService } from '../wishlist.service';
 import {Product} from '../Product';
 import { Wish } from '../Wish';
+import { ProductService } from '../product.service';
+import { ImageService } from '../image.service';
+import { Router } from '@angular/router';
+import { CustomerService } from '../customer.service';
 
 
 @Component({
@@ -15,10 +19,11 @@ export class WishlistComponent implements OnInit {
   wish:Wish;
   response:string;
   index:number;
-  constructor(private wishlistService:WishlistService) { }
+  constructor(private customerService:CustomerService,private wishlistService:WishlistService,public productService:ProductService,public imageService:ImageService,private router:Router) { }
 
   ngOnInit(): void {
-    this.findAllProductsInUserWishlist('U10001');
+    
+    this.findAllProductsInUserWishlist(this.customerService.userId);
   }
 
   findAllProductsInUserWishlist(userId:string)
@@ -30,7 +35,7 @@ export class WishlistComponent implements OnInit {
   }
   removeProductFromWishlist(productId:string)
   {
-    this.wishlistService.removeProductFromWishlist('U10001',productId).subscribe(data=>
+    this.wishlistService.removeProductFromWishlist(this.customerService.userId,productId).subscribe(data=>
       {
         this.response=data;
         console.log(this.response);
@@ -42,6 +47,12 @@ export class WishlistComponent implements OnInit {
           }
         }
       });
+  }
+
+  viewProduct(productid:String)
+  {
+    this.productService.setLocalProductById(productid);
+    this.router.navigateByUrl("/product-info");
   }
 
 }

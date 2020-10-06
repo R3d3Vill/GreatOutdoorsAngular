@@ -8,19 +8,21 @@
   </button>
   <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-link" href="#">Categories</a>
+      <a class="nav-link active" href="home">Home <span class="sr-only">(current)</span></a>
+     
       <form class="form-inline">
         <input class="form-control mr-sm-2" name="search" style="width: 500px;" [(ngModel)]="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchProducts()">Search</button>
       </form>
     </div>
   </div>
-  <a href="">
+ 
+<div  class="row" *ngIf="customerService.userId; else elseBlock">
+
+  <a href="cart">
     <img src="../../assets/cart.png" style="width: 40px; height: 40px;" alt= "">
     View Cart
-  </a>
-
+  </a> &nbsp;&nbsp;&nbsp;
     <img src="../../assets/user.png" style="width: 50px; height: 50px;" alt= "">
 
   <div class="dropdown">
@@ -31,10 +33,14 @@
     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
       <a class="dropdown-item" href="wishlist">Wishlist</a>
       <a class="dropdown-item" href="profile">Edit Profile</a>
-      <a class="dropdown-item" href="#">My Orders</a>
+      <a class="dropdown-item" href="myorders">My Orders</a>
       <a class="dropdown-item" href="#">Log out</a>
     </div>
   </div>
+</div>
+<ng-template #elseBlock> <button class="btn btn-success">
+  Register
+</button></ng-template>
 </nav>
 <router-outlet >
  

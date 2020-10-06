@@ -39,14 +39,17 @@ export class ProductService {
   {
   this.http.get<Product>(" http://localhost:8087/product/"+productId).subscribe( (resp:any)=> {
       this.product=resp;
-      console.log(this.product);
+     this.retrievedImage='';
       this.imgService.getImageByProductId(this.product.productId).subscribe((data:any)=>{
         this.base64Data=data.image;
         this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
       });
     });
+  }
 
-    
+  getProductById(productId:string)
+  {
+    return this.http.get<Product>(" http://localhost:8087/product/"+productId);
   }
 
   getSearchItems(productName:String)
@@ -57,7 +60,7 @@ export class ProductService {
     })).subscribe((resp:any)=>{
        
         this.productSearch=resp;
-
+        this.images=[];
         for(let product of this.productSearch)
         {
           this.imgService.getImageByProductId(product.productId).subscribe((data:any)=>{

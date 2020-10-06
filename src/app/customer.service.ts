@@ -7,7 +7,7 @@ import { Customer } from 'src/Customer';
   providedIn: 'root'
 })
 export class CustomerService {
-
+  userId:string='U10002';
   constructor(private httpClient:HttpClient) { }
 
   private customerApiUrl = "http://localhost:7070/customerApi"

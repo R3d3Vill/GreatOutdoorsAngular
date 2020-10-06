@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     document.getElementById("errorMsg").style.display="none"
     document.getElementById("successMsg").style.display="none"
-    this.userId='U10001';
+    this.userId=this.customerService.userId;
     this.customerService.getCustomerByUserId(this.userId).pipe(catchError((error : HttpErrorResponse) =>{
       console.log(error)
       return throwError(error.error.message);

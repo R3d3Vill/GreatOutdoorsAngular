@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CustomerService } from './customer.service';
 import { ProductService } from './product.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { ProductService } from './product.service';
 export class AppComponent {
   title = 'GreatOutdoors';
   
-  constructor(public productService:ProductService,public router:Router)
+  constructor(public productService:ProductService,public router:Router,public customerService:CustomerService)
   {
 
   }

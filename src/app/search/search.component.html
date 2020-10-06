@@ -1,40 +1,43 @@
-<table class="table table-bordered"> 
-<tr>
-    <td>
-        Product Image
-    </td>
-    <td>
-        Prouct Name
-    </td>
-    <td>
-        Product description
-    </td>
-    <td>
-        Price
-    </td>
-    <td>
-        View Product
-    </td>
-</tr>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <td>
+                Product Image
+            </td>
+            <td>
+                Prouct Name
+            </td>
+            <td>
+                Product description
+            </td>
+            <td>
+                Price
+            </td>
+            <td>
+                View Product
+            </td>
+        </tr>
+    </thead>
 
-<tr *ngFor="let product of productService.productSearch; index as i">
-    <td>
-        <img [src]='productService.images[i]' alt="" style="height: 100px; width: 100px;">
-    </td>
-    <td>
-        {{product.productName}}
-    </td>
-    <td>
-        {{product.description}}
-    </td>
-    <td>
-        {{product.price}}
-    </td>
-    <td>
-        <button class="btn btn-primary" (click)="viewProduct(product.productId)" >
-            View Product
-        </button>
-    </td>
-</tr>
+    <tr *ngFor="let product of productService.productSearch; index as i">
+        <td>
+            <img [src]='productService.images[i]' onerror=" this.onerror=null; this.src='../../assets/product.jpg';"
+                alt="" style="height: 200px; width: 200px;" class="rounded float-left">
+        </td>
+        <td>
+            {{product.productName}}
+        </td>
+        <td>
+            {{product.description}}
+        </td>
+        <td>
+            {{product.price}}
+        </td>
+        <td>
+            <button class="btn btn-primary" (click)="viewProduct(product.productId)">
+                View Product
+            </button>
+        </td>
+    </tr>
 
 </table>

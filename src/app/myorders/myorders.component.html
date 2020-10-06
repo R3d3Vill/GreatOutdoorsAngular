@@ -1,1 +1,51 @@
-<p>myorders works!</p>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <td>Order ID</td>
+            <td>Amount</td>
+            <td>Status</td>
+            <td>Date of Order</td>
+            <td>View Order</td>
+        </tr>
+    </thead>
+
+    <tr *ngFor="let order of orderService.orderList">
+        <td>{{order.orderId}}</td>
+        <td>{{order.amount}}</td>
+        <td>{{order.status}}</td>
+        <td>{{order.orderDate}}</td>
+        <td><button class="btn btn-success" data-toggle="modal" data-target="#viewOrder" (click)="viewOrder(order.orderId)">View order</button></td>
+    </tr>
+</table>
+
+
+<div class="modal fade" id="viewOrder" tabindex="-1" aria-labelledby="viewOrderLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewOrderLabel">Order Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr class="thead-dark">
+                        <td> Product</td>
+                        <td>Qty </td>
+                        <td>Retailer ID</td>
+                    </tr>
+                    <tr *ngFor="let item of orderService.orderItems;index as i">
+                        <td>{{orderService.products[i]}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.retailerId}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">View Retailer</button> -->
+                <button type="button" class="btn btn-primary" aria-hidden="true" data-dismiss="modal" aria-label="Close">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
