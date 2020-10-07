@@ -20,7 +20,7 @@
         </tr>
     </table>
     </div>
-    <div *ngIf="cartService.cartItems==0" class="alert alert-warning" role="alert"
+    <div *ngIf="cartService.cartItems.length==0" class="alert alert-warning" role="alert"
         style="text-align: center; margin-top: 20px;">
         <h3>No item in Cart</h3>
     </div>
