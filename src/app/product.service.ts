@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, delay, retry } from 'rxjs/operators';
 import { ImageService } from './image.service';
 import { Product } from './product';
 
@@ -69,6 +69,36 @@ export class ProductService {
             this.images.push(this.retrievedImage);
           });
         }
+    
+      
+
+    });
+
+  }
+
+
+  getHomePageItems()
+  {
+    this.getProductByProductName("").pipe(retry(0), catchError((error: HttpErrorResponse) => {
+      window.alert(error.error);
+      return throwError('Error fetching data from serve');
+    })).subscribe((resp:any)=>{
+      this.productSearch=resp.slice(-3);
+    
+       
+        this.images=[];
+        for(let product of this.productSearch)
+        {
+          this.imgService.getImageByProductId(product.productId).subscribe((data:any)=>{
+     
+            
+            this.base64Data=data.image;
+            this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+            this.images.push(this.retrievedImage);
+            
+          });
+        }
+        
     
       
 

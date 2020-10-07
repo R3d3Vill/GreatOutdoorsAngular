@@ -3,8 +3,8 @@
         <div class="col-md-6">
             <div class="card" style="width: 22rem;">
                 <img [src]='productService.retrievedImage'
-                    onerror=" this.onerror=null; this.src='../../assets/product.jpg';" alt="" class="card-img-top"
-                    style="border: 2px solid green;">
+                   alt="" class="card-img-top"
+                    style="border: 2px solid green; height:300px; width: 100%;">
             </div>
         </div>
         <div class="col-md-6" style="border: 2px solid rgb(0, 140, 255);">
@@ -23,8 +23,6 @@
                     </div >
                     <div class="col-md-4"> <a class="btn btn-primary" style="float: right;"
                             (click)="addItemToCart(productService.product.productId)">Add to cart</a></div>
-
-
 
                 </div>
             </div>

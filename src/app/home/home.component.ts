@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(public productService:ProductService,public router:Router) { }
 
   ngOnInit(): void {
+    this.productService.getHomePageItems();
   }
 
   viewProduct(productid:String)
