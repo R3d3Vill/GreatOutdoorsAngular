@@ -25,4 +25,9 @@ export class AppComponent {
     this.productService.getSearchItems(this.search);
     this.router.navigateByUrl("/search");
   }
+
+  logout()
+  {
+    this.customerService.userId="";
+  }
 }

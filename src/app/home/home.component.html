@@ -8,8 +8,8 @@
             <div class="carousel-item active">
                 <img src="../../assets/Pic 2.jpg" class="d-block w-100" style="height: 200px;" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <h5>Check new Shoes Collection</h5>
+                    <p>Search Shoes for new Shoes</p>
                 </div>
             </div>
             <div class="carousel-item">
@@ -33,57 +33,22 @@
 
 
 
-<div class="container" style="margin-bottom: 110px;">
-    <div class="row" style="margin-top: 50px;" >
-        <div class="col-md-4">
-            <div class="card" style="width: 22rem;">
-                <img src="../../assets/product.jpg" class="card-img-top" alt="...">
+<div class="container" style="margin-top: 50px;">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let product of productService.productSearch;index as i">
+            <div class="card" style="width:100%;">
+                <img [src]="productService.images[i]"  class="card-img-top" alt="" style="height: 300px;">
                 <div class="card-body">
-                    <h5 class="card-title">Product title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Description goes herre... Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit.
-                        Libero sapiente dolorem nostrum dignissimos quae deleniti perspiciatis omnis doloribus,
-                        voluptatem
-                        cupiditate atque numquam tempora voluptatum in odit? Laborum delectus perspiciatis optio.</p>
-                    <b class="card-link" style="">Price here</b>
-                    <a href="#" class="btn btn-primary" style="float: right;">View Produt</a>
+                    <h5 class="card-title">{{product.productName}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{product.manufacturer}}</h6>
+                    <p class="card-text">{{product.description}}</p>
+                    <b class="card-link">{{product.price}}</b>
+                    <a class="btn btn-primary" style="float: right;" (click)="viewProduct(product.productId)">View
+                        Produt</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card" style="width: 22rem;">
-                <img src="../../assets/product.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Description goes herre... Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit.
-                        Libero sapiente dolorem nostrum dignissimos quae deleniti perspiciatis omnis doloribus,
-                        voluptatem
-                        cupiditate atque numquam tempora voluptatum in odit? Laborum delectus perspiciatis optio.</p>
-                    <b class="card-link" style="">Price here</b>
-                    <a href="#" class="btn btn-primary" style="float: right;">View Produt</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card" style="width: 22rem;">
-                <img src="../../assets/product.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Description goes herre... Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit.
-                        Libero sapiente dolorem nostrum dignissimos quae deleniti perspiciatis omnis doloribus,
-                        voluptatem
-                        cupiditate atque numquam tempora voluptatum in odit? Laborum delectus perspiciatis optio.</p>
-                    <b class="card-link">Price here</b>
-                    <a class="btn btn-primary" style="float: right;" (click)="viewProduct('P10001')">View Produt</a>
-                </div>
-            </div>
-        </div>
-
     </div>
+   
+
 </div>

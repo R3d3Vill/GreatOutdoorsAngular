@@ -1,34 +1,53 @@
-<h3 style="text-align: center; color: dodgerblue;">MY PROFILE</h3>
-<form  id="updateCustomerForm" name="updateCustomerForm" #updateCustomerForm="ngForm">
-    <div class="form-group">
-        <label for="uName">Userame</label>
-        <input [(ngModel)]="userName" required minlength="2" pattern="[a-zA-Z0-9]*$" ngModel #uName="ngModel" type="text" name="uName" id="uName" class="form-control">
-    </div>
-    <div class="alert alert-danger" *ngIf="uName.touched && !uName.valid">*Required [ Username cannot contain speacial characters or blank spaces (Min Length = 2)] </div>
-    <div class="form-group">
-        <label for="addrss">Address</label>
-        <input [(ngModel)]="address" required maxlength="50" ngModel #addrss="ngModel" type="text" name="addrss" id="addrss" class="form-control">
-    </div>
-    <div class="alert alert-danger" *ngIf="addrss.touched && !addrss.valid">*Required</div>
-    <div class="form-group">
-        <label for="zip">Zipcode</label>
-        <input [(ngModel)]="zipcode" required minlength="6" maxlength="6" pattern="[0-9]+" ngModel #zip="ngModel" type="text" name="zip" id="zip" class="form-control">
-    </div>
-    <div class="alert alert-danger" *ngIf="zip.touched && !zip.valid">*Required [ Zipcode must be a 6 digit number ] </div>
-    <div class="form-group">
-        <label for="mail">Email Address</label>
-        <input [(ngModel)]="email" required pattern="[a-z0-9._]+@[a-z0-9.]+\.[a-z]+" ngModel #mail="ngModel" type="text" name="mail" id="mail" class="form-control">
-    </div>
-    <div class="alert alert-danger" *ngIf="mail.touched && !mail.valid">*Invalid Email Address</div>
-    <div class="form-group">
-        <label for="mob">Mobile</label>
-        <input [(ngModel)]="mobile" required minlength="10" maxlength="10" pattern="[789][0-9]+" ngModel #mob="ngModel" type="text" name="mob" id="mob" class="form-control">
-    </div>
-    <div class="alert alert-danger" *ngIf="mob.touched && !mob.valid">*Required [ Mobile Number must be a 10 digit Number Starting with either 7,8 or 9 ]</div>
-    <div class="form-group">
-        <input type="button" [disabled]="!updateCustomerForm.valid" class="btn btn-primary" name="updateCustomer" id="updateCustomer" value="Update Details" (click)="updateCustomer()">
-    </div>
-    <div class="alert alert-danger" id="errorMsg" style="text-align: left; font-weight: bold; margin-top: 10px;">{{errorMsg}}</div>
-    <div class="alert alert-success" id="successMsg" style="text-align: left; font-weight: bold; margin-top: 10px;">{{successMsg}}</div>
-</form>
+<br>
+<div class="row" style="margin-bottom: 20px;">
 
+    <div class="col-md-5 rounded" style="margin-left: auto; margin-right: auto; background-color:darkseagreen">
+        <div class="alert alert-warning" role="alert" style="text-align: center; margin-top: 20px;">
+            <h3>Profile Information</h3>
+        </div>
+        <form id="updateCustomerForm" name="updateCustomerForm" #updateCustomerForm="ngForm">
+            <div class="form-group">
+                <label for="uName">Userame</label>
+                <input [(ngModel)]="userName" required minlength="2" pattern="[a-zA-Z0-9]*$" ngModel #uName="ngModel"
+                    type="text" name="uName" id="uName" class="form-control">
+            </div>
+            <div class="alert alert-danger" *ngIf="uName.touched && !uName.valid">*Required [ Username cannot contain
+                speacial characters or blank spaces (Min Length = 2)] </div>
+            <div class="form-group">
+                <label for="addrss">Address</label>
+                <input [(ngModel)]="address" required maxlength="50" ngModel #addrss="ngModel" type="text" name="addrss"
+                    id="addrss" class="form-control">
+            </div>
+            <div class="alert alert-danger" *ngIf="addrss.touched && !addrss.valid">*Required</div>
+            <div class="form-group">
+                <label for="zip">Zipcode</label>
+                <input [(ngModel)]="zipcode" required minlength="6" maxlength="6" pattern="[0-9]+" ngModel
+                    #zip="ngModel" type="text" name="zip" id="zip" class="form-control">
+            </div>
+            <div class="alert alert-danger" *ngIf="zip.touched && !zip.valid">*Required [ Zipcode must be a 6 digit
+                number ] </div>
+            <div class="form-group">
+                <label for="mail">Email Address</label>
+                <input [(ngModel)]="email" required pattern="[a-z0-9._]+@[a-z0-9.]+\.[a-z]+" ngModel #mail="ngModel"
+                    type="text" name="mail" id="mail" class="form-control">
+            </div>
+            <div class="alert alert-danger" *ngIf="mail.touched && !mail.valid">*Invalid Email Address</div>
+            <div class="form-group">
+                <label for="mob">Mobile</label>
+                <input [(ngModel)]="mobile" required minlength="10" maxlength="10" pattern="[789][0-9]+" ngModel
+                    #mob="ngModel" type="text" name="mob" id="mob" class="form-control">
+            </div>
+            <div class="alert alert-danger" *ngIf="mob.touched && !mob.valid">*Required [ Mobile Number must be a 10
+                digit Number Starting with either 7,8 or 9 ]</div>
+            <div class="form-group" style="text-align: center;">
+                <input type="button" [disabled]="!updateCustomerForm.valid" class="btn btn-primary"
+                    name="updateCustomer" id="updateCustomer" value="Update Details" (click)="updateCustomer()">
+            </div>
+            <div class="alert alert-danger" id="errorMsg"
+                style="text-align: left; font-weight: bold; margin-top: 10px;">{{errorMsg}}</div>
+            <div class="alert alert-success" id="successMsg"
+                style="text-align: left; font-weight: bold; margin-top: 10px;">{{successMsg}}</div>
+        </form>
+
+    </div>
+</div>

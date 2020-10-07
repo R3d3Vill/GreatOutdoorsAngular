@@ -1,4 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 import { CartService } from '../cart.service';
 import { CustomerService } from '../customer.service';
 import { ImageService } from '../image.service';
@@ -31,7 +34,10 @@ export class ProductInfoComponent implements OnInit {
   }
  
   addToWishList(productId:string)
-  {
+  { if(this.customerService.userId=="")
+    {
+      window.alert("Kindly Login to use this functionality");
+    }
     this.wishListService.addProductToWishlist(this.customerService.userId,productId).subscribe((data:any)=>{
       alert("Product added to wishList")
       

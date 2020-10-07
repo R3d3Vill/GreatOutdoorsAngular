@@ -1,6 +1,7 @@
+
+<div class="container-fluid">
 <div class="row" style="text-align: center;">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8">
+    <div class="col-md-8" style="margin-left: auto; margin-right: auto;">
     <h2 >Cart Items</h2>
     <table class="table table-bordered">
         <thead class="thead-dark">
@@ -19,39 +20,45 @@
         </tr>
     </table>
     </div>
-    <div class="col-sm-2"></div>
 </div>
 
-<div class="alert alert-success col-md-8" role="alert" style="margin-left: auto; margin-right: auto;">
-   <b>Cart Value : </b>  ₹ {{cartService.cartValue}}
-    <button class="btn btn-primary" style="margin-left: 70%;" (click)="placeOrder()">Place Order</button>
-  </div>
 
+<div class="row" style="text-align: center;">
+  <div class="alert alert-success col-md-8" role="alert" style="margin-left: auto; margin-right: auto;">
+    <b>Cart Value : </b>  ₹ {{cartService.cartValue}}
+     <button class="btn btn-primary" style="margin-left: 70%;" (click)="placeOrder()">Place Order</button>
+   </div>
+ 
+ 
+   <div class="modal fade" id="updateQty" tabindex="-1" aria-labelledby="updateQtyLabel" aria-hidden="true">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="updateQtyLabel">Update Quantity</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+             <div class="form-group">
+                 <label for="exampleFormControlSelect1">Select Quantity</label>
+                 <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="updatedQuantity">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+                 </select>
+               </div>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-primary" (click)="onSave()" data-dismiss="modal" aria-label="Close" aria-hidden="true">Save changes</button>
+         </div>
+       </div>
+     </div>
+   </div>
+ 
+</div>
 
-  <div class="modal fade" id="updateQty" tabindex="-1" aria-labelledby="updateQtyLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="updateQtyLabel">Update Quantity</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Select Quantity</label>
-                <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="updatedQuantity">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-              </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="onSave()" data-dismiss="modal" aria-label="Close" aria-hidden="true">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+
