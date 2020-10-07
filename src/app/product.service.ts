@@ -10,8 +10,8 @@ import { Product } from './product';
   providedIn: 'root'
 })
 export class ProductService {
-  localurl1:string="  http://localhost:8087/productList";
-  localurl2:string="  http://localhost:8087/products/search";
+  localurl1:string="  http://localhost:9090/productList";
+  localurl2:string="  http://localhost:9090/products/search";
  
   product:Product;
   productSearch:Product[]=[];
@@ -37,7 +37,7 @@ export class ProductService {
 
   setLocalProductById(productId:String)
   {
-  this.http.get<Product>(" http://localhost:8087/product/"+productId).subscribe( (resp:any)=> {
+  this.http.get<Product>(" http://localhost:9090/product/"+productId).subscribe( (resp:any)=> {
       this.product=resp;
      this.retrievedImage='';
       this.imgService.getImageByProductId(this.product.productId).subscribe((data:any)=>{
@@ -49,7 +49,7 @@ export class ProductService {
 
   getProductById(productId:string)
   {
-    return this.http.get<Product>(" http://localhost:8087/product/"+productId);
+    return this.http.get<Product>(" http://localhost:9090/product/"+productId);
   }
 
   getSearchItems(productName:String)
