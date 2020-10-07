@@ -1,17 +1,17 @@
 <div style="text-align: center;">
     <h2>Your Wish List</h2>
     <table class="table table-bordered col-md-8" style="margin-left: auto; margin-right: auto;">
-       <thead class="thead-dark">
-        <tr>
-            <th>Product Id</th>
-            <th>Product Name</th>
-            <th>Category</th>
-            <th>Price</th>
-            <th>Manufacturer</th>
-            <th>Description</th>
-            <th>Action</th>
-        </tr>
-    </thead>
+        <thead class="thead-dark">
+            <tr>
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Manufacturer</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
         <tr *ngFor="let product of productArr">
             <td (click)="viewProduct(product.productId)">{{product.productId}}</td>
             <td (click)="viewProduct(product.productId)">{{product.productName}}</td>
@@ -19,7 +19,12 @@
             <td>{{product.price}}</td>
             <td>{{product.manufacturer}}</td>
             <td>{{product.description}}</td>
-            <td><button (click)="removeProductFromWishlist(product.productId)" class="btn btn-danger">Remove</button></td>
+            <td><button (click)="removeProductFromWishlist(product.productId)" class="btn btn-danger">Remove</button>
+            </td>
         </tr>
     </table>
+    <div *ngIf="productArr.length==0" class="alert alert-warning" role="alert"
+        style="text-align: center; margin-top: 20px;">
+        <h3>No item in Wish List</h3>
+    </div>
 </div>
