@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { RegistrationComponent } from './registration/registration.component';
 import { SearchComponent } from './search/search.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SearchComponent } from './search/search.component';
     ProductInfoComponent,
     MyordersComponent,
     RegistrationComponent,
-    SearchComponent
+    SearchComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

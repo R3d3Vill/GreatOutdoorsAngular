@@ -8,7 +8,7 @@
         <form id="updateCustomerForm" name="updateCustomerForm" #updateCustomerForm="ngForm">
             <div class="form-group">
                 <label for="uName">Userame</label>
-                <input [(ngModel)]="userName" required minlength="2" pattern="[a-zA-Z0-9]*$" ngModel #uName="ngModel"
+                <input [(ngModel)]="userName" required readonly minlength="2" pattern="[a-zA-Z0-9]*$" ngModel #uName="ngModel"
                     type="text" name="uName" id="uName" class="form-control">
             </div>
             <div class="alert alert-danger" *ngIf="uName.touched && !uName.valid">*Required [ Username cannot contain

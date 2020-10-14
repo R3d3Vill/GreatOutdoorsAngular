@@ -8,10 +8,15 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { CartComponent } from './cart/cart.component';
 import { SearchComponent } from './search/search.component';
 import { MyordersComponent } from './myorders/myorders.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
 
+{
+  path:'login',
+  component:LoginComponent
+},
 {
   path:'product-info',
   component:ProductInfoComponent 

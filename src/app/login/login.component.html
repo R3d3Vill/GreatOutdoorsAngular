@@ -1,0 +1,20 @@
+<form id="loginForm" name="loginForm" #loginForm="ngForm">
+    <hr>
+    <div class="form-group">
+        <label for="uName">Username</label>
+        <input [(ngModel)]="userName" required maxlength="25" pattern="[a-zA-Z0-9]+" ngModel #uName="ngModel" type="text" name="uName" id="uName" class="form-control" >
+    </div>
+    <div class="alert alert-danger" *ngIf="uName.touched && !uName.valid">Username required [cannot contain spaces & special characters]</div>
+    <div class="form-group">
+        <label for="uPassword">Password</label>
+        <input [(ngModel)]="password" required maxlength="10" ngModel #uPassword="ngModel" type="password" name="uPassword" id="uPassword" class="form-control" >
+    </div>
+    <div class="alert alert-danger" *ngIf="uPassword.touched && !uPassword.valid">Password is required</div>
+    <div class="form-group">
+        <input type="button" [disabled]="!loginForm.valid" class="btn btn-primary" name="login" id="login" value="Login" (click)="authenticate()">
+    </div>
+    <div class="alert alert-danger" id="errorMsg"
+                style="text-align: left; font-weight: bold; margin-top: 10px;">{{errorMsg}}</div>
+    <a href="registration">New To Great Outdoors? Register </a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="">Forgot Password</a>
+</form>

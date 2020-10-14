@@ -26,8 +26,20 @@ export class AppComponent {
     this.router.navigateByUrl("/search");
   }
 
+  wishlist(){
+    this.router.navigateByUrl("/wishlist");
+  }
+  myorders()
+  {
+    this.router.navigateByUrl("/myorders")
+  }
+  profile()
+  {
+    this.router.navigateByUrl("/profile");
+  }
   logout()
   {
+    this.router.navigateByUrl("/home")
     this.customerService.userId="";
   }
 }

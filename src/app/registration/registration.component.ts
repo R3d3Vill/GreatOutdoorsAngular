@@ -1,9 +1,12 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { stringify } from 'querystring';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Customer } from 'src/Customer';
+import { Customer } from 'src/app/Customer';
 import { CustomerService } from '../customer.service';
+import { Login } from '../Login';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-registration',
@@ -12,8 +15,7 @@ import { CustomerService } from '../customer.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private customerService:CustomerService) { }
- 
+  constructor(private customerService:CustomerService,private loginService:LoginService) { }
   userId:string;
   userName:string;
   password:string;
@@ -23,7 +25,7 @@ export class RegistrationComponent implements OnInit {
   mobile:string;
   errorMsg:string;
   successMsg:string;
-
+  role:string="ROLE_CUSTOMER"
   ngOnInit(): void {
     document.getElementById("errorMsg").style.display="none"
     document.getElementById("successMsg").style.display="none"
@@ -39,9 +41,14 @@ export class RegistrationComponent implements OnInit {
       return throwError(error)
     })).subscribe(data =>{
       console.log(data);
+      var login = new Login(data.userId,data.userName,this.password,this.role);
+      this.loginService.addCredentials(login).subscribe(data => {
+      console.log(data);
+      })
       this.successMsg="Registered Successfully [ USER ID : "+data.userId+" ]"
       document.getElementById("errorMsg").style.display="none"
       document.getElementById("successMsg").style.display="block"
     });
+    
   }
 }

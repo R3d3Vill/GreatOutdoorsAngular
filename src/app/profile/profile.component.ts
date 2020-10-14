@@ -3,7 +3,7 @@ import { CustomerService } from '../customer.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Customer } from 'src/Customer';
+import { Customer } from 'src/app/Customer';
 
 @Component({
   selector: 'app-profile',
