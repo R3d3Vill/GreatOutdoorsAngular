@@ -29,6 +29,9 @@ export class AppComponent {
   wishlist(){
     this.router.navigateByUrl("/wishlist");
   }
+  cart(){
+    this.router.navigateByUrl("/cart");
+  }
   myorders()
   {
     this.router.navigateByUrl("/myorders")

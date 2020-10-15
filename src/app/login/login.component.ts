@@ -35,6 +35,12 @@ export class LoginComponent implements OnInit {
         console.log(this.customerService.userId);
         this.router.navigateByUrl("home")
       }
+      if(data.role=="ROLE_ADMIN")
+      {
+        this.customerService.userId=data.userId;
+        console.log(this.customerService.userId);
+        window.location.href="http://localhost:4200";
+      }
     })
   }
 

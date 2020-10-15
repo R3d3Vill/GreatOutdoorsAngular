@@ -17,32 +17,37 @@ import { WishlistComponent } from '../wishlist/wishlist.component';
 })
 export class ProductInfoComponent implements OnInit {
 
-  constructor(private wishListService:WishlistService,
-    private customerService:CustomerService,
-    public productService:ProductService,
-    public imageService:ImageService,
-    private cartService:CartService) { }
+  constructor(private wishListService: WishlistService,
+    private customerService: CustomerService,
+    public productService: ProductService,
+    public imageService: ImageService,
+    private cartService: CartService) { }
 
-  
+
   ngOnInit(): void {
-    
+
   }
 
-  addItemToCart(productId:string)
-  {
-    this.cartService.addToCart(this.customerService.userId,productId,1);
+  addItemToCart(productId: string) {
+    if (this.customerService.userId == "" || this.customerService.userId == null) {
+      window.alert("Kindly Login to use this functionality");
+    } else {
+      this.cartService.addToCart(this.customerService.userId, productId, 1);
+      alert("Product added to cart")
+    }
   }
- 
-  addToWishList(productId:string)
-  { if(this.customerService.userId=="")
-    {
+
+  addToWishList(productId: string) {
+    if (this.customerService.userId == "" || this.customerService.userId == null) {
       window.alert("Kindly Login to use this functionality");
     }
-    this.wishListService.addProductToWishlist(this.customerService.userId,productId).subscribe((data:any)=>{
-      alert("Product added to wishList")
-      
-    });
+    else {
+      this.wishListService.addProductToWishlist(this.customerService.userId, productId).subscribe((data: any) => {
+        alert("Product added to wishList")
+
+      });
+    }
   }
- 
+
 
 }

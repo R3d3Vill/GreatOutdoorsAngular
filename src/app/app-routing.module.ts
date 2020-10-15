@@ -42,6 +42,10 @@ const routes: Routes = [
 },{
   path:'myorders',
   component:MyordersComponent
+},
+{
+  path:'',
+  component:HomeComponent 
 } 
 ];
 
